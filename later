@@ -1,0 +1,82 @@
+if (process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI)
+}
+else {
+    mongoose.connect("mongodb://localhost/subject")
+}
+mongoose.connect('error', function (err) {
+    console.log('mongoDB connection error:' + err)
+    process.exit(-1)
+})
+
+mongoose.connection.once('open', function() {
+    console.log("MONGODB is now connected")
+})
+
+{{!-- <form action="/" method="post">
+<label for="title">Title</label>
+<input type="text" name="title" id="title" placeholder="title">
+    <br>
+    <label for="link">Hyperlink</label>
+    <input type="text" name="link" id="link" >
+    <br>
+    <label for="description">Description</label>
+    <input type="description" name="description" id="description">
+
+    <input type="submit" value="Submit">
+
+</form> --}}
+
+ update: (req, res) => {
+        Subject.findByIdAndUpdate(req.params.id, {
+            Subject: req.body}, {new: true})
+        .then(updatedSubject => {
+            res.redirect(`/${req.params.subjectId}`)
+        })
+
+
+
+
+
+<form action="{{know.Id}}" method="Post">
+ <img class="pi" src="/images/th.jpeg">
+ <label for="name">Name</label>
+ <input type="text" name="name" id="name" placeholder="name">
+ <br>
+ <label for="link">Hyperlink</label>
+ <input type="text" name="link" id="link" >
+    <br>
+     <label for="description">Description</label>
+    <input type="description" name="description" id="description">
+    <input type="submit" value="Submit">
+</form>
+
+show: (req, res) => {
+        res.send(`Showing topics with id of ${req.params.topicsId}`)
+    },
+    new: (req, res) => {
+        res.send(`${req.params.topicsId}`)
+    },
+    create: (req, res) => {
+        res.send(`Create the new topic item in the db`)
+    },
+    edit: (req, res) => {
+        res.send(`Show an edit form for the topic with id of ${req.params.topicsId}`)
+    },
+    update: (req, res) => {
+        res.send(`Update the topic with id of ${req.params.topicsId}`)
+    },
+    delete: (req, res) => {
+        res.send(`Delete topic with the id of ${req.params.topicsId}`)
+    },
+
+    Topics.deleteMany().then(() => {
+return Topics.deleteMany()
+    }).then(() => {
+        return Topics.create({
+         title: "sets",
+        link: "https://www.google.com",
+    })
+}).then(test1 => {
+    test1.save()
+})

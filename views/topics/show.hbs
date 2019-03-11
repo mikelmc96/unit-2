@@ -1,0 +1,8 @@
+<div class="container">
+    <h2>{{topics.name}}</h2>
+    <a class="action-btn btn btn-info" href="/know/{{topics.name}}">EDIT</a>
+    <form class="delete-form" action="/{{topics.name}}?_method=DELETE" method="POST">
+            <input class="action-btn btn btn-danger" type="submit" value="DELETE">
+        </form>
+    </div>
+</div>

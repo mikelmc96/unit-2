@@ -1,0 +1,17 @@
+<div class="container">
+  <a href="/{{topics.id}}">Back</a>
+  <h2>Edit {{topics.title}}</h2>
+ <div class="col-8">
+    <form action="/{{topics}}?_method=PUT" method="POST">
+       <div class="form-group">
+         <label for="title">Title</label>
+         <input class="form-control" type="text" name="title" value="{{topics}}">
+       </div>
+       <div class="form-group">
+         <label for="link">Hyperlink</label>
+         <input class="form-control" type="text" name="link" id="link" value={{topics}}>
+       </div>
+       <input class="btn btn-info" type="submit" value="UPDATE">
+    </form>
+ </div>
+</div>
